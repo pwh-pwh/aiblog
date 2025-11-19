@@ -4,6 +4,7 @@ description: 'Why aesthetics matter more than ever in user retention and how to 
 pubDate: '2025-11-15'
 heroImage: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
 category: 'Design'
+tags: ['UI/UX', 'Design', 'Typography']
 ---
 
 ## Aesthetics Matter

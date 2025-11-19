@@ -12,6 +12,7 @@ const blog = defineCollection({
         heroImage: z.string().optional(),
         category: z.string().default('General'),
         author: z.string().default('Antigravity'),
+        tags: z.array(z.string()).default([]),
     }),
 });
 

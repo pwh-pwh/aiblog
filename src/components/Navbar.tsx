@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import { Search } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 export default function Navbar() {
@@ -20,6 +21,14 @@ export default function Navbar() {
             setScrolled(false);
         }
     });
+
+    const triggerSearch = () => {
+        window.dispatchEvent(new KeyboardEvent('keydown', {
+            key: 'k',
+            metaKey: true,
+            bubbles: true
+        }));
+    };
 
     return (
         <motion.nav
@@ -58,9 +67,19 @@ export default function Navbar() {
                 ))}
             </ul>
 
-            <a href="#newsletter" className="hidden md:block px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-sm font-medium transition-all">
-                Subscribe
-            </a>
+            <div className="flex items-center gap-3">
+                <button
+                    onClick={triggerSearch}
+                    className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-sm font-medium transition-all"
+                >
+                    <Search className="w-4 h-4" />
+                    <span className="text-muted-foreground">Search</span>
+                    <kbd className="hidden lg:inline-block px-1.5 py-0.5 text-xs bg-white/10 rounded">⌘K</kbd>
+                </button>
+                <a href="#newsletter" className="hidden md:block px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-sm font-medium transition-all">
+                    Subscribe
+                </a>
+            </div>
         </motion.nav>
     );
 }

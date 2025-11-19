@@ -4,6 +4,7 @@ description: 'A deep dive into creating complex animations and interactions in R
 pubDate: '2025-11-10'
 heroImage: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
 category: 'Tutorial'
+tags: ['React', 'Animation', 'Framer Motion']
 ---
 
 ## Getting Started

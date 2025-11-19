@@ -4,6 +4,7 @@ description: 'From BEM to Tailwind, exploring how we style the web and what the 
 pubDate: '2025-11-19'
 heroImage: 'linear-gradient(135deg, #FF6B6B 0%, #556270 100%)'
 category: 'Engineering'
+tags: ['CSS', 'Tailwind', 'Web Development']
 ---
 
 ## Introduction

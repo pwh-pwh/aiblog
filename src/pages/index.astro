@@ -4,9 +4,20 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import FeaturedPosts from '../components/FeaturedPosts';
 import Footer from '../components/Footer.astro';
+import SearchModal from '../components/SearchModal';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const searchPosts = posts.map(post => ({
+	title: post.data.title,
+	description: post.data.description,
+	slug: post.slug,
+	category: post.data.category,
+}));
 ---
 
 <Layout title="Antigravity | Modern Blog">
+	<SearchModal client:load posts={searchPosts} />
 	<Navbar client:load />
 	<main>
 		<Hero client:load />
