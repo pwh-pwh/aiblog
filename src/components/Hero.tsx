@@ -48,12 +48,12 @@ export default function Hero() {
                     transition={{ duration: 0.5, delay: 0.3 }}
                     className="flex flex-col sm:flex-row items-center justify-center gap-4"
                 >
-                    <button className="px-8 py-4 rounded-full bg-primary text-primary-foreground font-bold text-lg hover:bg-primary/90 transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_-5px_var(--primary)]">
+                    <a href="/blog" className="px-8 py-4 rounded-full bg-primary text-primary-foreground font-bold text-lg hover:bg-primary/90 transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_-5px_var(--primary)]">
                         Start Reading
-                    </button>
-                    <button className="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-medium text-lg hover:bg-white/10 transition-all hover:scale-105 active:scale-95 backdrop-blur-sm">
+                    </a>
+                    <a href="/projects" className="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-medium text-lg hover:bg-white/10 transition-all hover:scale-105 active:scale-95 backdrop-blur-sm">
                         View Portfolio
-                    </button>
+                    </a>
                 </motion.div>
             </div>
 
