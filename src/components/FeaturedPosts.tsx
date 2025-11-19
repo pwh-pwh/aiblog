@@ -9,7 +9,8 @@ const posts = [
         date: "Nov 19, 2025",
         readTime: "5 min read",
         category: "Engineering",
-        image: "linear-gradient(135deg, #FF6B6B 0%, #556270 100%)"
+        image: "linear-gradient(135deg, #FF6B6B 0%, #556270 100%)",
+        slug: "evolution-of-css"
     },
     {
         title: "Designing for the Modern Web",
@@ -17,7 +18,8 @@ const posts = [
         date: "Nov 15, 2025",
         readTime: "7 min read",
         category: "Design",
-        image: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+        image: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+        slug: "modern-web-design"
     },
     {
         title: "Mastering Framer Motion",
@@ -25,7 +27,8 @@ const posts = [
         date: "Nov 10, 2025",
         readTime: "10 min read",
         category: "Tutorial",
-        image: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        image: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        slug: "mastering-framer-motion"
     }
 ];
 
@@ -54,42 +57,44 @@ export default function FeaturedPosts() {
                             transition={{ delay: index * 0.1 }}
                             className="group relative flex flex-col h-full bg-card border border-white/5 rounded-2xl overflow-hidden hover:border-primary/50 transition-colors duration-300"
                         >
-                            <div
-                                className="h-48 w-full bg-cover bg-center relative overflow-hidden"
-                                style={{ background: post.image }}
-                            >
-                                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
-                                <div className="absolute top-4 left-4">
-                                    <span className="px-3 py-1 rounded-full bg-black/50 backdrop-blur-md text-xs font-medium text-white border border-white/10">
-                                        {post.category}
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div className="flex flex-col flex-grow p-6">
-                                <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
-                                    <div className="flex items-center gap-1">
-                                        <Calendar className="w-3 h-3" />
-                                        {post.date}
-                                    </div>
-                                    <div className="flex items-center gap-1">
-                                        <Clock className="w-3 h-3" />
-                                        {post.readTime}
+                            <a href={`/blog/${post.slug}`} className="flex flex-col h-full">
+                                <div
+                                    className="h-48 w-full bg-cover bg-center relative overflow-hidden"
+                                    style={{ background: post.image }}
+                                >
+                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
+                                    <div className="absolute top-4 left-4">
+                                        <span className="px-3 py-1 rounded-full bg-black/50 backdrop-blur-md text-xs font-medium text-white border border-white/10">
+                                            {post.category}
+                                        </span>
                                     </div>
                                 </div>
 
-                                <h3 className="font-heading text-xl font-bold mb-3 group-hover:text-primary transition-colors">
-                                    {post.title}
-                                </h3>
-                                <p className="text-muted-foreground text-sm mb-6 flex-grow">
-                                    {post.excerpt}
-                                </p>
+                                <div className="flex flex-col flex-grow p-6">
+                                    <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
+                                        <div className="flex items-center gap-1">
+                                            <Calendar className="w-3 h-3" />
+                                            {post.date}
+                                        </div>
+                                        <div className="flex items-center gap-1">
+                                            <Clock className="w-3 h-3" />
+                                            {post.readTime}
+                                        </div>
+                                    </div>
 
-                                <div className="flex items-center text-sm font-medium text-primary">
-                                    Read Article
-                                    <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                                    <h3 className="font-heading text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                                        {post.title}
+                                    </h3>
+                                    <p className="text-muted-foreground text-sm mb-6 flex-grow">
+                                        {post.excerpt}
+                                    </p>
+
+                                    <div className="flex items-center text-sm font-medium text-primary">
+                                        Read Article
+                                        <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </motion.article>
                     ))}
                 </div>
