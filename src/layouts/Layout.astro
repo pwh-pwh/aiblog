@@ -1,5 +1,12 @@
 ---
 import '../styles/global.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
+import '@fontsource/outfit/500.css';
+import '@fontsource/outfit/700.css';
+import '@fontsource/outfit/900.css';
 import { ClientRouter } from 'astro:transitions';
 
 interface Props {
@@ -37,9 +44,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<meta property="twitter:image" content={new URL(image, Astro.site)} />
 		
 		<title>{title}</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
 		<link rel="alternate" type="application/rss+xml" title="Antigravity Blog RSS Feed" href="/rss.xml" />
 		<ClientRouter />
 	</head>
