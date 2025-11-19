@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar';
+import PostList from '../../components/PostList';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const formattedPosts = posts.map((post) => ({
+  ...post.data,
+  slug: post.slug,
+}));
+---
+
+<Layout title="Blog | Antigravity">
+	<Navbar client:load />
+	
+	<main class="pt-32 pb-24 px-4">
+		<div class="max-w-6xl mx-auto">
+			<div class="mb-16 text-center">
+				<h1 class="font-heading text-4xl md:text-6xl font-bold mb-6">
+					All Articles
+				</h1>
+				<p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+					Explore our latest thoughts on design, engineering, and the future of the web.
+				</p>
+			</div>
+
+			<PostList client:load posts={formattedPosts} />
+		</div>
+	</main>
+
+	<footer class="border-t border-white/10 py-12 px-4 bg-black/20 backdrop-blur-lg mt-20">
+		<div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+			<div class="flex items-center gap-2">
+				<div class="h-6 w-6 rounded-full bg-gradient-to-br from-primary to-purple-600" />
+				<span class="font-heading font-bold tracking-tight">Antigravity</span>
+			</div>
+			<p class="text-sm text-muted-foreground">
+				© 2025 Antigravity. Built with Astro & Tailwind.
+			</p>
+		</div>
+	</footer>
+</Layout>

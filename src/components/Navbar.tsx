@@ -40,13 +40,18 @@ export default function Navbar() {
             </div>
 
             <ul className="hidden md:flex items-center gap-8">
-                {['Home', 'Blog', 'Projects', 'About'].map((item) => (
-                    <li key={item}>
+                {[
+                    { name: 'Home', href: '/' },
+                    { name: 'Blog', href: '/blog' },
+                    { name: 'Projects', href: '#projects' },
+                    { name: 'About', href: '#about' }
+                ].map((item) => (
+                    <li key={item.name}>
                         <a
-                            href={`#${item.toLowerCase()}`}
+                            href={item.href}
                             className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group"
                         >
-                            {item}
+                            {item.name}
                             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
                         </a>
                     </li>
