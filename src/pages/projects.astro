@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import { ArrowUpRight, Github } from 'lucide-react';
+
+const projects = [
+  {
+    title: "Nebula Dashboard",
+    description: "A next-generation analytics dashboard featuring real-time data visualization, customizable widgets, and AI-driven insights.",
+    tags: ["Next.js", "TypeScript", "D3.js", "Tailwind"],
+    image: "linear-gradient(135deg, #6366f1 0%, #a855f7 100%)",
+    demoUrl: "#",
+    repoUrl: "#"
+  },
+  {
+    title: "Quantum UI Kit",
+    description: "A comprehensive design system and component library built for modern web applications, focusing on accessibility and animation.",
+    tags: ["React", "Framer Motion", "Storybook"],
+    image: "linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%)",
+    demoUrl: "#",
+    repoUrl: "#"
+  },
+  {
+    title: "Echo Chat",
+    description: "End-to-end encrypted messaging application with support for voice messages, file sharing, and group chats.",
+    tags: ["Socket.io", "Node.js", "Redis", "WebRTC"],
+    image: "linear-gradient(135deg, #ec4899 0%, #f43f5e 100%)",
+    demoUrl: "#",
+    repoUrl: "#"
+  },
+  {
+    title: "Astro Sphere",
+    description: "A 3D portfolio template built with Three.js and Astro, designed to showcase creative work in an immersive environment.",
+    tags: ["Astro", "Three.js", "WebGL"],
+    image: "linear-gradient(135deg, #10b981 0%, #3b82f6 100%)",
+    demoUrl: "#",
+    repoUrl: "#"
+  }
+];
+---
+
+<Layout title="Projects | Antigravity">
+	<Navbar client:load />
+	
+	<main class="pt-32 pb-24 px-4">
+		<div class="max-w-6xl mx-auto">
+			<div class="mb-16">
+				<h1 class="font-heading text-4xl md:text-6xl font-bold mb-6">
+					Selected Works
+				</h1>
+				<p class="text-xl text-muted-foreground max-w-2xl">
+					A collection of digital products, experiments, and open source contributions.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+				{projects.map((project) => (
+					<div class="group relative bg-card border border-white/5 rounded-3xl overflow-hidden hover:border-primary/50 transition-colors duration-300">
+						<div 
+							class="h-64 w-full bg-cover bg-center relative overflow-hidden"
+							style={{ background: project.image }}
+						>
+							<div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
+                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 gap-4">
+                                <a href={project.demoUrl} class="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-medium hover:bg-white/20 transition-colors flex items-center gap-2">
+                                    Visit Demo <ArrowUpRight className="w-4 h-4" />
+                                </a>
+                                <a href={project.repoUrl} class="p-2 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-white hover:bg-black/70 transition-colors">
+                                    <Github className="w-5 h-5" />
+                                </a>
+                            </div>
+						</div>
+						
+						<div class="p-8">
+							<h3 class="font-heading text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+								{project.title}
+							</h3>
+							<p class="text-muted-foreground mb-6 leading-relaxed">
+								{project.description}
+							</p>
+							
+							<div class="flex flex-wrap gap-2">
+								{project.tags.map((tag) => (
+									<span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-muted-foreground">
+										{tag}
+									</span>
+								))}
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</main>
+
+	<footer class="border-t border-white/10 py-12 px-4 bg-black/20 backdrop-blur-lg mt-20">
+		<div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+			<div class="flex items-center gap-2">
+				<div class="h-6 w-6 rounded-full bg-gradient-to-br from-primary to-purple-600" />
+				<span class="font-heading font-bold tracking-tight">Antigravity</span>
+			</div>
+			<p class="text-sm text-muted-foreground">
+				© 2025 Antigravity. Built with Astro & Tailwind.
+			</p>
+		</div>
+	</footer>
+</Layout>

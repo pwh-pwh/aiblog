@@ -43,8 +43,8 @@ export default function Navbar() {
                 {[
                     { name: 'Home', href: '/' },
                     { name: 'Blog', href: '/blog' },
-                    { name: 'Projects', href: '#projects' },
-                    { name: 'About', href: '#about' }
+                    { name: 'Projects', href: '/projects' },
+                    { name: 'About', href: '/about' }
                 ].map((item) => (
                     <li key={item.name}>
                         <a
