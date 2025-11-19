@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer.astro';
 import { ArrowUpRight, Github } from 'lucide-react';
 
 const projects = [
@@ -93,15 +94,5 @@ const projects = [
 		</div>
 	</main>
 
-	<footer class="border-t border-white/10 py-12 px-4 bg-black/20 backdrop-blur-lg mt-20">
-		<div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-			<div class="flex items-center gap-2">
-				<div class="h-6 w-6 rounded-full bg-gradient-to-br from-primary to-purple-600" />
-				<span class="font-heading font-bold tracking-tight">Antigravity</span>
-			</div>
-			<p class="text-sm text-muted-foreground">
-				© 2025 Antigravity. Built with Astro & Tailwind.
-			</p>
-		</div>
-	</footer>
+	<Footer />
 </Layout>

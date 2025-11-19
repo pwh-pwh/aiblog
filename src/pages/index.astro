@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import FeaturedPosts from '../components/FeaturedPosts';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Antigravity | Modern Blog">
@@ -12,20 +13,5 @@ import FeaturedPosts from '../components/FeaturedPosts';
 		<FeaturedPosts client:visible />
 	</main>
 	
-	<footer className="border-t border-white/10 py-12 px-4 bg-black/20 backdrop-blur-lg">
-		<div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-			<div className="flex items-center gap-2">
-				<div className="h-6 w-6 rounded-full bg-gradient-to-br from-primary to-purple-600" />
-				<span className="font-heading font-bold tracking-tight">Antigravity</span>
-			</div>
-			<p className="text-sm text-muted-foreground">
-				© 2025 Antigravity. Built with Astro & Tailwind.
-			</p>
-			<div className="flex gap-6">
-				<a href="#" className="text-muted-foreground hover:text-primary transition-colors">Twitter</a>
-				<a href="#" className="text-muted-foreground hover:text-primary transition-colors">GitHub</a>
-				<a href="#" className="text-muted-foreground hover:text-primary transition-colors">LinkedIn</a>
-			</div>
-		</div>
-	</footer>
+	<Footer />
 </Layout>
